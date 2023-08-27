@@ -3,13 +3,24 @@
 		{
 			"loop": false,
 			"offsets": [
-				2,
+				7,
 				0
 			],
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
 			"name": "BF IDLE"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "BF LEFT MISS",
+			"indices": []
 		},
 		{
 			"loop": false,
@@ -31,6 +42,17 @@
 			"anim": "singUP",
 			"fps": 24,
 			"name": "BF UP NOTE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "BF RIGHT MISS",
 			"indices": []
 		},
 		{
@@ -61,6 +83,39 @@
 				0,
 				0
 			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "BF IDLE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "BF UP NOTE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "BF DOWN NOTE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
 			"anim": "singLEFT",
 			"fps": 24,
 			"name": "BF RIGHT NOTE",
@@ -72,9 +127,9 @@
 				0,
 				0
 			],
-			"anim": "singRIGHTmiss",
+			"anim": "singLEFT-alt",
 			"fps": 24,
-			"name": "BF LEFT MISS",
+			"name": "BF RIGHT NOTE",
 			"indices": []
 		},
 		{
@@ -83,28 +138,28 @@
 				0,
 				0
 			],
-			"anim": "singLEFTmiss",
-			"fps": 24,
-			"name": "BF RIGHT MISS",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "BF LEFT NOTE"
+			"fps": 24,
+			"name": "BF LEFT NOTE",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "BF LEFT NOTE",
+			"indices": []
 		}
 	],
 	"no_antialiasing": true,
 	"image": "characters/bfPixel",
 	"position": [
-		80,
-		480
+		0,
+		350
 	],
 	"healthicon": "bf-pixel",
 	"flip_x": true,
@@ -115,8 +170,8 @@
 	],
 	"camera_position": [
 		50,
-		-160
+		-60
 	],
 	"sing_duration": 4,
-	"scale": 6.8
+	"scale": 6
 }

@@ -1641,10 +1641,21 @@ class PlayState extends MusicBeatState
 		if (health > 2) health = 2;
 		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
 		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
-		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0;
-		iconP2.animation.curAnim.curFrame = (healthBar.percent < 20) ? 2 : 0;
-		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0;
-		iconP1.animation.curAnim.curFrame = (healthBar.percent > 80) ? 2 : 0;
+		if (healthBar.percent < 20)
+		{
+		iconP1.animation.curAnim.curFrame = 1; 
+		iconP2.animation.curAnim.curFrame = 2;
+		}
+		else if (healthBar.percent > 80)
+		{
+		iconP1.animation.curAnim.curFrame = 2;
+		iconP2.animation.curAnim.curFrame = 1;
+		}
+		else
+		{
+		iconP1.animation.curAnim.curFrame = 0;
+		iconP2.animation.curAnim.curFrame = 0;
+		}
 
 		if (controls.justPressed('debug_2') && !endingSong && !inCutscene)
 			openCharacterEditor();

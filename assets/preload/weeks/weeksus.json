@@ -1,0 +1,41 @@
+{
+	"storyName": "char but sus aaaaaaaaaaaa!!!!!",
+	"difficulties": "hard",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"songs": [
+		[
+			"lights-down",
+			"charsus",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"danger",
+			"bambi-angey",
+			[
+				146,
+				113,
+				253
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Week Sus",
+	"hiddenUntilUnlocked": false
+}

@@ -14,6 +14,7 @@ import tjson.TJSON as Json;
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
+import flixel.addons.display.FlxBackdrop;
 
 import shaders.ColorSwap;
 
@@ -188,6 +189,7 @@ class TitleState extends MusicBeatState
 	var gfDance:FlxSprite;
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
+	var titlestatebg:FlxBackdrop;
 	var swagShader:ColorSwap = null;
 
 	function startIntro()
