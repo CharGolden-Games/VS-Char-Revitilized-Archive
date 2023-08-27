@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MChar.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="M Char0000" x="0" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0001" x="0" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0002" x="283" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0003" x="283" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0004" x="566" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0005" x="566" y="0" width="283" height="398"/>
+	<SubTexture name="M Char0006" x="0" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0007" x="0" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0008" x="283" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0009" x="283" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0010" x="283" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0011" x="283" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0012" x="283" y="398" width="283" height="398"/>
+	<SubTexture name="M Char0013" x="283" y="398" width="283" height="398"/>
+</TextureAtlas>
