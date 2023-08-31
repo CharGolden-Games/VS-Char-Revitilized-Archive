@@ -197,21 +197,10 @@
 			"anim": "pre-attack",
 			"indices": [],
 			"name": "bf pre attack"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-430,
-				0
-			],
-			"anim": "idle-alt",
-			"fps": 24,
-			"name": "BF idle dance",
-			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/BOYFRIEND",
+	"image": "characters/char",
 	"position": [
 		0,
 		350
@@ -224,7 +213,7 @@
 		29
 	],
 	"camera_position": [
-		-160,
+		100,
 		-40
 	],
 	"sing_duration": 4,

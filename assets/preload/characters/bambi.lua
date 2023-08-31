@@ -6,3 +6,4 @@ function opponentNoteHit()
         setProperty('health', health- 0.03);
     end
 end
+

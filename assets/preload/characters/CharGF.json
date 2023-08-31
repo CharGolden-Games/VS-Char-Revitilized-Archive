@@ -137,8 +137,8 @@
 		},
 		{
 			"offsets": [
-				45,
-				-8
+				1,
+				30
 			],
 			"loop": true,
 			"anim": "hairBlow",
@@ -154,7 +154,7 @@
 		{
 			"offsets": [
 				0,
-				111
+				30
 			],
 			"loop": false,
 			"anim": "hairFall",
@@ -185,6 +185,86 @@
 			"fps": 24,
 			"name": "GF FEAR",
 			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft- alt",
+			"fps": 24,
+			"name": "GF Dancing Beat Super0",
+			"indices": [
+				30,
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceRight-alt",
+			"fps": 24,
+			"name": "GF Dancing Beat Super0",
+			"indices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "sad- alt",
+			"fps": 24,
+			"name": "gf sad super0",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
 		}
 	],
 	"no_antialiasing": false,

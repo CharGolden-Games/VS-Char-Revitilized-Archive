@@ -1,14 +1,13 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "danceLeft",
+			"loop": false,
 			"fps": 24,
-			"name": "GF Dancing Beat",
+			"anim": "danceLeft",
 			"indices": [
 				30,
 				0,
@@ -26,17 +25,17 @@
 				12,
 				13,
 				14
-			]
+			],
+			"name": "GF Dancing Beat"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "danceRight",
+			"loop": false,
 			"fps": 24,
-			"name": "GF Dancing Beat",
+			"anim": "danceRight",
 			"indices": [
 				15,
 				16,
@@ -53,16 +52,42 @@
 				27,
 				28,
 				29
-			]
+			],
+			"name": "GF Dancing Beat"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-20,
 				-12
 			],
+			"anim": "sad",
+			"fps": 24,
+			"name": "gf sad",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
 			"loop": false,
 			"fps": 24,
-			"anim": "sad",
+			"anim": "firstDeath",
 			"indices": [
 				0,
 				1,
@@ -81,39 +106,13 @@
 			"name": "gf sad"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "firstDeath",
-			"fps": 24,
-			"name": "gf sad",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			]
-		},
-		{
 			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "deathLoop",
 			"fps": 24,
-			"name": "gf sad",
+			"anim": "deathLoop",
 			"indices": [
 				0,
 				1,
@@ -128,17 +127,17 @@
 				10,
 				11,
 				12
-			]
+			],
+			"name": "gf sad"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "deathConfirm",
+			"loop": false,
 			"fps": 24,
-			"name": "gf sad",
+			"anim": "deathConfirm",
 			"indices": [
 				0,
 				1,
@@ -153,7 +152,8 @@
 				10,
 				11,
 				12
-			]
+			],
+			"name": "gf sad"
 		}
 	],
 	"no_antialiasing": false,
@@ -162,12 +162,12 @@
 		280,
 		180
 	],
-	"healthicon": "no",
+	"healthicon": "face",
 	"flip_x": false,
 	"healthbar_colors": [
-		100,
-		80,
-		100
+		75,
+		39,
+		0
 	],
 	"camera_position": [
 		0,
