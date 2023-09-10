@@ -45,7 +45,7 @@ class CreditsState extends MusicBeatState
 
 		var defaultList:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
 			['Psych Engine Team'],
-			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
+			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine (who is very cool)',			'https://twitter.com/Shadow_Mario_',	'444444'],
 			['Riveren',				'riveren',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/riverennn',		'B42F71'],
 			[''],
 			['Former Engine Members'],
@@ -70,7 +70,8 @@ class CreditsState extends MusicBeatState
 			['VS Char Team'],
 			['Char Golden/Char But Live',			'char',		     	'Coder, Main artist, and Animator for VS Char',	'https://twitter.com/chargoldenyt',			'E1843A'],
 			['Funkkid/uudieikeoe/razu',				'razu',				'Pause Screen Music, Application Logo',			'https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q',	'378FC7'],
-			['xZOOTERx',							'zooter',			'Made the original Shenanigans song.',			'https://www.youtube.com/watch?v=lNCz1nBLXTQ_',	'444444']
+			['xZOOTERx',							'zooter',			'Made the original Shenanigans song.',			'https://www.youtube.com/watch?v=lNCz1nBLXTQ_',	'444444'],
+			['MC07',								'mc07',				'Helped with some Fla's and icons as well as fixed my goofy ahh glow effects with char',			'https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q',	'378FC7']
 
 		];
 		
