@@ -42,7 +42,7 @@ Trevor Remix - doesnt know Char in this universe and is very violent as well as 
 ![](https://cdn.discordapp.com/attachments/1019679413006258257/1131312143506092143/Github_Renders_20230719154838.png) 
 Plexi Remix - owns a successful record distribution company "Plexi Records Inc." and works with Char in this universe to produce his music although he doesnt know Char on a personal level.
 
-[IMAGE NOT MADE YET] 
+![](https://media.discordapp.net/attachments/1052563456185864192/1149730262834487429/micheal_remix.png?width=351&height=489) 
 Micheal Remix - aside from being more crazy and unable to make portals, basically the same guy.
 
 
