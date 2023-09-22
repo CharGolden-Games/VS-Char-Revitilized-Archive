@@ -48,6 +48,10 @@ Micheal Remix - aside from being more crazy and unable to make portals, basicall
 
 ![](https://vscharimagefiles.neocities.org/imgs/CharRetro.png) Char Retro - This aspiring reporter is far too cocky for his own good, despite never publishing a story before. maybe he's found his lucky break.
 
+![](https://media.discordapp.net/attachments/1052563456185864192/1154766588579430421/Untitled103_20230922090846__01.png?width=721&height=489) Trevor Mongus
+
+![](https://media.discordapp.net/attachments/1052563456185864192/1154757117903900765/Untitled103_20230922083039__01.png?width=524&height=489) Micheal Mongus
+
 
 
 # Psych Engine Readme:
