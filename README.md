@@ -46,6 +46,9 @@ Plexi Remix - owns a successful record distribution company "Plexi Records Inc."
 Micheal Remix - aside from being more crazy and unable to make portals, basically the same guy.
 
 
+![](https://vscharimagefiles.neocities.org/imgs/CharRetro.png) Char Retro - This aspiring reporter is far too cocky for his own good, despite never publishing a story before. maybe he's found his lucky break.
+
+
 
 # Psych Engine Readme:
 
