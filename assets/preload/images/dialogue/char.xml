@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="char.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Char Talk Angry0000" x="0" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0001" x="0" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0002" x="307" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0003" x="307" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0004" x="614" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0005" x="614" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0006" x="307" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Angry0007" x="307" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0000" x="921" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0001" x="921" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0002" x="1228" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0003" x="1228" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0004" x="1535" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0005" x="1535" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0006" x="1228" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Annoyed0007" x="1228" y="0" width="307" height="430"/>
+	<SubTexture name="Char Talk Normal0000" x="0" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0001" x="0" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0002" x="306" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0003" x="306" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0004" x="612" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0005" x="612" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0006" x="306" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Normal0007" x="306" y="430" width="306" height="429"/>
+	<SubTexture name="Char Talk Scared0000" x="918" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0001" x="918" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0002" x="1224" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0003" x="1224" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0004" x="1530" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0005" x="1530" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0006" x="1224" y="430" width="306" height="430"/>
+	<SubTexture name="Char Talk Scared0007" x="1224" y="430" width="306" height="430"/>
+</TextureAtlas>

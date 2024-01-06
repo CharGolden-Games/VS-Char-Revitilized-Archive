@@ -1,0 +1,3 @@
+does a letterboxing effect, basically just black lines on the bottom
+
+value 1: 1 to enable, anything else to disable

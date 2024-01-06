@@ -13,7 +13,7 @@
 		},
 		{
 			"offsets": [
-				-13,
+				-123,
 				-294
 			],
 			"loop": false,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				70,
-				-325
+				-60,
+				-245
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				258,
-				-285
+				109,
+				-245
 			],
 			"loop": false,
 			"fps": 24,
@@ -46,8 +46,8 @@
 		},
 		{
 			"offsets": [
-				184,
-				-184
+				-116,
+				-204
 			],
 			"loop": false,
 			"fps": 24,
@@ -59,15 +59,15 @@
 	"no_antialiasing": false,
 	"image": "characters/charmogus",
 	"position": [
-		0,
+		-80,
 		100
 	],
 	"healthicon": "charsus",
 	"flip_x": false,
 	"healthbar_colors": [
-		241,
-		89,
-		42
+		255,
+		144,
+		0
 	],
 	"camera_position": [
 		-130,

@@ -1,0 +1,63 @@
+{
+	"position": [
+		170,
+		100
+	],
+	"dialogue_pos": "left",
+	"scale": 1.3,
+	"image": "charL",
+	"animations": [
+		{
+			"idle_offsets": [
+				-1,
+				-12
+			],
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "talk",
+			"idle_name": "BF0",
+			"loop_name": "Char Talk Normal"
+		},
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "pissed",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "BF PISSED0",
+			"loop_name": "Char Talk Angry"
+		},
+		{
+			"idle_offsets": [
+				-6,
+				-11
+			],
+			"anim": "shocked",
+			"loop_offsets": [
+				-3,
+				0
+			],
+			"idle_name": "BF SHOCK0",
+			"loop_name": "Char Talk Scared"
+		},
+		{
+			"loop_offsets": [
+				-4,
+				0
+			],
+			"anim": "confused",
+			"idle_offsets": [
+				-6,
+				-11
+			],
+			"loop_name": "Char Talk Annoyed",
+			"idle_name": "BF CONFUSED0"
+		}
+	]
+}

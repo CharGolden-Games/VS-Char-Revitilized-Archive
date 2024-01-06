@@ -1,93 +1,36 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
-				-79,
+				1,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "cheer",
-			"indices": [],
-			"name": "GF Cheer"
-		},
-		{
-			"offsets": [
-				0,
-				-19
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "GF left note"
+			"name": "GF Cheer",
+			"indices": []
 		},
 		{
-			"offsets": [
-				0,
-				-20
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "GF Down Note"
-		},
-		{
 			"offsets": [
-				0,
-				4
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "GF Up Note"
-		},
-		{
-			"offsets": [
-				0,
-				-20
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "GF Right Note"
-		},
-		{
-			"offsets": [
-				-72,
+				-2,
 				-21
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "sad",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12
-			],
-			"name": "gf sad"
+			"fps": 24,
+			"name": "gf sad",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-9
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceLeft",
+			"fps": 24,
+			"name": "GF Dancing Beat",
 			"indices": [
 				30,
 				0,
@@ -105,17 +48,17 @@
 				12,
 				13,
 				14
-			],
-			"name": "GF Dancing Beat"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-9
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceRight",
+			"fps": 24,
+			"name": "GF Dancing Beat",
 			"indices": [
 				15,
 				16,
@@ -132,50 +75,14 @@
 				27,
 				28,
 				29
-			],
-			"name": "GF Dancing Beat"
-		},
-		{
-			"offsets": [
-				0,
-				-9
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "hairFall",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11
-			],
-			"name": "GF Dancing Beat Hair Landing"
-		},
-		{
-			"offsets": [
-				8,
-				-17
-			],
-			"loop": true,
-			"fps": 24,
-			"anim": "scared",
-			"indices": [],
-			"name": "GF FEAR"
+			]
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/gfChristmas",
 	"position": [
 		0,
-		170
+		0
 	],
 	"healthicon": "gf",
 	"flip_x": false,

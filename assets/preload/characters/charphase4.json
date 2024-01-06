@@ -170,18 +170,18 @@
 				300,
 				60
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP-alt",
-			"loop": false,
+			"indices": [],
 			"name": "BF NOTE UP alt0"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Micheal",
 	"position": [
-		0,
-		260
+		190,
+		360
 	],
 	"healthicon": "charb",
 	"flip_x": true,

@@ -205,16 +205,16 @@
 		0,
 		350
 	],
-	"healthicon": "char",
+	"healthicon": "charnew",
 	"flip_x": true,
 	"healthbar_colors": [
-		247,
-		148,
-		29
+		254,
+		118,
+		0
 	],
 	"camera_position": [
-		100,
-		-40
+		0,
+		140
 	],
 	"sing_duration": 4,
 	"scale": 1

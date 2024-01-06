@@ -83,16 +83,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
+		['Are you even TRYING to hit the notes?', 0.2], //From 0% to 19%
+		['how are you so bad?!', 0.4], //From 20% to 39%
+		['Among Us lol', 0.5], //From 40% to 49%
 		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
+		['Ok', 0.69], //From 60% to 68%
+		['Heh, Nice *Thumbs up*', 0.7], //69%
 		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Nice!', 0.9], //From 80% to 89%
+		['WOAH!', 1], //From 90% to 99%
+		['Perfect!! are you a bot or smth?', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -1641,20 +1641,35 @@ class PlayState extends MusicBeatState
 		if (health > 2) health = 2;
 		iconP1.x = healthBar.barCenter + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
 		iconP2.x = healthBar.barCenter - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
-		if (healthBar.percent < 20)
-		{
-		iconP1.animation.curAnim.curFrame = 1; 
-		iconP2.animation.curAnim.curFrame = 2;
+		if (health > 2)
+			health = 2;
+
+		if (iconP1.animation.frames == 3) {
+			if (healthBar.percent < 20)
+				iconP1.animation.curAnim.curFrame = 1;
+			else if (healthBar.percent >80)
+				iconP1.animation.curAnim.curFrame = 2;
+			else
+				iconP1.animation.curAnim.curFrame = 0;
+		} 
+		else {
+			if (healthBar.percent < 20)
+				iconP1.animation.curAnim.curFrame = 1;
+			else
+				iconP1.animation.curAnim.curFrame = 0;
 		}
-		else if (healthBar.percent > 80)
-		{
-		iconP1.animation.curAnim.curFrame = 2;
-		iconP2.animation.curAnim.curFrame = 1;
-		}
-		else
-		{
-		iconP1.animation.curAnim.curFrame = 0;
-		iconP2.animation.curAnim.curFrame = 0;
+		if (iconP2.animation.frames == 3) {
+			if (healthBar.percent > 80)
+				iconP2.animation.curAnim.curFrame = 1;
+			else if (healthBar.percent < 20)
+				iconP2.animation.curAnim.curFrame = 2;
+			else 
+				iconP2.animation.curAnim.curFrame = 0;
+		} else {
+			if (healthBar.percent > 80)
+				iconP2.animation.curAnim.curFrame = 1;
+			else 
+				iconP2.animation.curAnim.curFrame = 0;
 		}
 
 		if (controls.justPressed('debug_2') && !endingSong && !inCutscene)

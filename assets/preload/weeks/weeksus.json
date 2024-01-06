@@ -3,39 +3,39 @@
 	"difficulties": "hard",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
+	"weekBefore": "CharTT",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "tutorial",
-	"startUnlocked": true,
-	"weekCharacters": [
-		"",
-		"bf",
-		""
-	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
 	"songs": [
 		[
 			"lights-down",
 			"charsus",
 			[
-				146,
-				113,
-				253
+				106,
+				53,
+				0
 			]
 		],
 		[
 			"danger",
-			"bambi-angey",
+			"charsus",
 			[
 				146,
-				113,
-				253
+				73,
+				0
 			]
 		]
 	],
-	"hideStoryMode": true,
-	"weekName": "Week Sus",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"hiddenUntilUnlocked": true,
+	"weekName": "Week Sus"
 }

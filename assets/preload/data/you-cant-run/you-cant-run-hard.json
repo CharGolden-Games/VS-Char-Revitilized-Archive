@@ -53,7 +53,7 @@
 				]
 			]
 		],
-		"gfVersion": "trevortt",
+		"gfVersion": "nospeaker",
 		"notes": [
 			{
 				"sectionNotes": [],
@@ -6179,7 +6179,7 @@
 		"player2": "charphase4",
 		"player3": null,
 		"song": "you-cant-run",
-		"stage": "triostage",
+		"stage": "triostagenew",
 		"validScore": true,
 		"needsVoices": true,
 		"noteStyle": null,
