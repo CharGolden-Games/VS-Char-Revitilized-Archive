@@ -1,3 +1,5 @@
+[![Build](https://github.com/gameygu-0213/Char-Engine-New/actions/workflows/main.yml/badge.svg)](https://github.com/gameygu-0213/Char-Engine-New/actions/workflows/main.yml)
+ 
  ![](https://cdn.discordapp.com/attachments/1019679413006258257/1128022646366416957/Untitled74_20230710133245.png)
 # Char-Engine
 
