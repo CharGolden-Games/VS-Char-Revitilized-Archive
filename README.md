@@ -92,7 +92,7 @@ Micheal Remix - aside from being more crazy and unable to make portals, basicall
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
 ## Installation:
-You must have [Haxe version 4.2.5](https://haxe.org/download/version/4.2.5/), seriously, stop using older or newer versions, it won't work!
+You must have [Haxe version 4.2.5](https://haxe.org/download/version/4.2.5/), seriously, stop using older or newer versions, it won't work! (its funny that im using 4.2.4 and it still works fine lol but still you should heed this warning - Char)
 
 open up a Command Prompt/PowerShell or Terminal, type `haxelib install hmm`
 
