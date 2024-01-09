@@ -17,6 +17,7 @@ class MasterEditorMenu extends MusicBeatState
 		'Chart Editor',
 		'Character Editor',
 		'Week Editor',
+		// 'Stage Editor (Alpha from OS Engine Port)',
 		'Menu Character Editor',
 		'Dialogue Editor',
 		'Dialogue Portrait Editor',
@@ -114,6 +115,8 @@ class MasterEditorMenu extends MusicBeatState
 					LoadingState.loadAndSwitchState(new CharacterEditorState(Character.DEFAULT_CHARACTER, false));
 				case 'Week Editor':
 					MusicBeatState.switchState(new WeekEditorState());
+				// case 'Stage Editor (Beta from OS Engine Port)': // Fun fact this is coded for a pretty old Psych Version im literally looking it up rn and will update you when i know which one :Smiley:
+				// 	LoadingState.loadAndSwitchState(new StageEditorState(), false); // Update: Idunno but its definitely Pre 0.7 :smiley: its being a b and i dont feel like figuring it out >:(
 				case 'Menu Character Editor':
 					MusicBeatState.switchState(new MenuCharacterEditorState());
 				case 'Dialogue Editor':

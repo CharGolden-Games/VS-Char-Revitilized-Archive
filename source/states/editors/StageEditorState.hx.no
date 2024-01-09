@@ -1,7 +1,6 @@
-package editors;
+package states.editors;
 
 #if desktop
-import Discord.DiscordClient;
 #end
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
@@ -15,7 +14,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.graphics.FlxGraphic;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
-import Paths;
+import flixel.addons.ui.FlxUIDropDownMenu;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
@@ -30,7 +29,7 @@ import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import haxe.Json;
-import Character;
+import objects.Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
@@ -44,9 +43,9 @@ using StringTools;
 
 class StageEditorState extends MusicBeatState
 {
-	var bf:Character;
-    var dad:Character;
-    var gf:Character;
+	public var bf:Character;
+	public var dad:Character;
+	public var gf:Character;
 
 	var UI_box:FlxUITabMenu;
 
@@ -160,9 +159,9 @@ class StageEditorState extends MusicBeatState
 		FlxG.camera.follow(camFollow);
         FlxG.camera.zoom = 0.5; // big big big big big
 
-        bf = new Boyfriend(1500, 0, "bf");
-        gf = new Character(600, 0, "gf", false);
-        dad = new Character(0, 0, "dad", false);
+        var bf = new Character(1500, 0, "bf");
+        var gf = new Character(600, 0, "gf", false);
+        var dad = new Character(0, 0, "dad", false);
 
         charLayer.add(gf);
         charLayer.add(dad);
@@ -221,7 +220,7 @@ class StageEditorState extends MusicBeatState
     var tagInputText:FlxUIInputText;
     var objectAdd:FlxButton;
     var objectRemove:FlxButton;
-    var spritesDropDown:FlxUIDropDownMenuCustom;
+    var spritesDropDown:FlxUIDropDownMenu;
 
     function addAddRemoveUI() {
         var tab_group = new FlxUI(null, UI_box);
@@ -274,7 +273,7 @@ class StageEditorState extends MusicBeatState
             }
         });
 
-        spritesDropDown = new FlxUIDropDownMenuCustom(objectInputText.x, objectInputText.y + 60, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
+        spritesDropDown = new FlxUIDropDownMenu(objectInputText.x, objectInputText.y + 60, FlxUIDropDownMenu.makeStrIdLabelArray([''], true), function(sprite:String)
 		{
             bgLayer.update(1);
             selectedObj = bgLayer.members[Std.parseInt(sprite)];
@@ -361,16 +360,16 @@ class StageEditorState extends MusicBeatState
         UI_box.addGroup(tab_group);
 	}
 
-    var dadSelect:FlxUIDropDownMenuCustom;
-    var bfSelect:FlxUIDropDownMenuCustom;
-    var gfSelect:FlxUIDropDownMenuCustom;
-    var charDropDown:FlxUIDropDownMenuCustom;
+    var dadSelect:FlxUIDropDownMenu;
+    var bfSelect:FlxUIDropDownMenu;
+    var gfSelect:FlxUIDropDownMenu;
+    var charDropDown:FlxUIDropDownMenu;
 
     function addCharactersUI() {
         var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Characters";
         
-        dadSelect = new FlxUIDropDownMenuCustom(10, 30, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
+        dadSelect = new FlxUIDropDownMenu(10, 30, FlxUIDropDownMenu.makeStrIdLabelArray([''], true), function(sprite:String)
             {
                 //dad.x = 0;
                 //dad.y = 0;
@@ -388,13 +387,13 @@ class StageEditorState extends MusicBeatState
                 dadidle = getIdleOffset(characterList[Std.parseInt(sprite)]);
             });
 
-        bfSelect = new FlxUIDropDownMenuCustom(dadSelect.x+130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
+        bfSelect = new FlxUIDropDownMenu(dadSelect.x+130, dadSelect.y, FlxUIDropDownMenu.makeStrIdLabelArray([''], true), function(sprite:String)
             {
                 //dad.x = 0;
                 //dad.y = 0;
 
                 charLayer.remove(bf);
-                bf = new Boyfriend(bf.x, bf.y, characterList[Std.parseInt(sprite)]);
+                bf = new Character(bf.x, bf.y, characterList[Std.parseInt(sprite)]);
                 bfSelect.selectedLabel = "";
                 charLayer.add(bf);
                 bf.updateHitbox();
@@ -406,7 +405,7 @@ class StageEditorState extends MusicBeatState
                 bfidle = getIdleOffset(characterList[Std.parseInt(sprite)]);
             });
 
-        gfSelect = new FlxUIDropDownMenuCustom(dadSelect.x - 130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(sprite:String)
+        gfSelect = new FlxUIDropDownMenu(dadSelect.x - 130, dadSelect.y, FlxUIDropDownMenu.makeStrIdLabelArray([''], true), function(sprite:String)
             {
                 //dad.x = 0;
                 //dad.y = 0;
@@ -426,7 +425,7 @@ class StageEditorState extends MusicBeatState
 
         reloadCharDrops();
         
-        charDropDown = new FlxUIDropDownMenuCustom(gfSelect.x-130, dadSelect.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(character:String)
+        charDropDown = new FlxUIDropDownMenu(gfSelect.x-130, dadSelect.y, FlxUIDropDownMenu.makeStrIdLabelArray([''], true), function(character:String)
 		{
             selectedObj = charactersObjects[Std.parseInt(character)];
             reloadCharacterDropDown();
@@ -454,8 +453,8 @@ class StageEditorState extends MusicBeatState
 
 		#if MODS_ALLOWED
 		characterList = [];
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
-		for(mod in Paths.getGlobalMods())
+		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Mods.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
+		for(mod in Mods.getGlobalMods())
 			directories.push(Paths.mods(mod + '/characters/'));
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
@@ -476,9 +475,9 @@ class StageEditorState extends MusicBeatState
 		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
 		#end
 
-		dadSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
-        bfSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
-        gfSelect.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
+		dadSelect.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
+        bfSelect.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
+        gfSelect.setData(FlxUIDropDownMenu.makeStrIdLabelArray(characterList, true));
 		dadSelect.selectedLabel = daAnim;
 		bfSelect.selectedLabel = daAnim;
 		gfSelect.selectedLabel = daAnim;
@@ -513,12 +512,12 @@ class StageEditorState extends MusicBeatState
     }
 
     function reloadCharacterDropDown() {
-		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(charactersOnStage, true));
+		charDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(charactersOnStage, true));
 	}
 
     function reloadSpritesDropdown() {
         bgLayer.update(1);
-        spritesDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(spritesLayer, true));
+        spritesDropDown.setData(FlxUIDropDownMenu.makeStrIdLabelArray(spritesLayer, true));
     }
 
     function updateCoords() {
@@ -683,7 +682,7 @@ class StageEditorState extends MusicBeatState
         if(!charDropDown.dropPanel.visible) {
 
             if (FlxG.keys.justPressed.ESCAPE) {
-                MusicBeatState.switchState(new editors.MasterEditorMenu());
+                MusicBeatState.switchState(new states.editors.MasterEditorMenu());
                 FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				FlxG.mouse.visible = false;
 			}
