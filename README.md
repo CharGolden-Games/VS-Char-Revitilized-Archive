@@ -1,5 +1,5 @@
-[![Build](https://github.com/gameygu-0213/Char-Engine-New/actions/workflows/main.yml/badge.svg)](https://github.com/gameygu-0213/Char-Engine-New/actions/workflows/main.yml)
- 
+# Char why is there a website in here?
+uh oopsies poopsies wrong repo oh no oooohhh noooooo. uh anyway...
  ![](https://vscharimagefiles.neocities.org/imgs/VSCharLogo.png)
 # Char-Engine (Logo by [ODDBLUE](https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q) 
 
