@@ -167,9 +167,19 @@
 
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
 	
-	<icon path="art/icon16.png" size='16'/>
-	<icon path="art/icon32.png" size='32'/>
-	<icon path="art/icon64.png" size='64'/>
-	<icon path="art/icon128.png" size='128'/>
-	<icon path="art/iconOG.png" />
+	<icon path="art/icon16-Debug.png" size='16' if="debug"/>
+	<icon path="art/icon32-Debug.png" size='32' if="debug"/>
+	<icon path="art/icon64-Debug.png" size='64' if="debug"/>
+	<icon path="art/icon128-Debug.png" size='128' if="debug"/>
+	<icon path="art/iconOG-Debug.png" if="debug"/>
+	<icon path="art/icon16-32.png" size='16' unless="debug" if="32bits"/>
+	<icon path="art/icon32-32.png" size='32' unless="debug" if="32bits"/>
+	<icon path="art/icon64-32.png" size='64' unless="debug" if="32bits"/>
+	<icon path="art/icon128-32.png" size='128' unless="debug" if="32bits"/>
+	<icon path="art/iconOG-32.png" unless="debug" if="32bits"/>
+	<icon path="art/icon16.png" size='16' unless="debug || 32bits"/>
+	<icon path="art/icon32.png" size='32' unless="debug || 32bits"/>
+	<icon path="art/icon64.png" size='64' unless="debug || 32bits"/>
+	<icon path="art/icon128.png" size='128' unless="debug || 32bits"/>
+	<icon path="art/iconOG.png" unless="debug || 32bits" />
 </project>
