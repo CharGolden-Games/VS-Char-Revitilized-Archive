@@ -23,7 +23,7 @@ h1 {
 }
 
 body {
-    background-image: url('img/loading.png');
+    background-image: url('https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/docs/img/loading.png');
     background-repeat: repeat;
     background-attachment: fixed;
     background-size: cover;
