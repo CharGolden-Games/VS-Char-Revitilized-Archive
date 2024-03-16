@@ -1,3 +1,21 @@
+# TODO:
+* Add custom animations to the right side of the screen based on selected option.
+* Send every menu item to the Left of the screen like OS Engine's menu.
+* Actually implement the stage editor from OS Engine.
+* Make new assets for Options and maybe add icons in the options menu.
+* Implement Freeplay Catagories.
+* your mom. :troll:
+
+
+
+
+
+
+
+
+
+
+
 
  ![](https://vscharimagefiles.neocities.org/imgs/VSCharLogo.png)
 # Char-Engine (Logo by [ODDBLUE](https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q)) 
