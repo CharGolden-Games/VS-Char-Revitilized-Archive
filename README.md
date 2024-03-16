@@ -1,5 +1,5 @@
 # TODO:
-* Add custom animations to the right side of the screen based on selected option. (See [here]() for whats next to do there)
+* Add custom animations to the right side of the screen based on selected option. (See [here](MainMenuTodo.md) for whats next to do there)
 * Send every menu item to the Left of the screen like OS Engine's menu.
 * Actually implement the stage editor from OS Engine.
 * Make new assets for Options and maybe add icons in the options menu.
