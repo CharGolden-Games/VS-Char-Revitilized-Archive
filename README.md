@@ -33,3 +33,9 @@ click on Releases, any release and itll be the tag icon!
 ![](https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/docs/img/Branch%20Pt.1.png)
 ![](https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/docs/img/Branch%20Pt.2.png)
 ![](https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/docs/img/Branch%20Pt.3.png)
+
+
+
+
+
+# NOTE ANY VERSION BEFORE 0.4 IS A DUMMY IN TERMS OF SOURCE, IT DOES NOT CONTAIN THAT VERSIONS SOURCE, LOOK [HERE](https://github.com/gameygu-0213/Char-Engine)
