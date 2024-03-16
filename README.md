@@ -25,4 +25,7 @@ Hey welcome to my mod this is a little project im cookin up to get better at pro
 Find a bug?
 Report it in [The discord!](https://discord.gg/BuGUaYMtxR)
 
-Looking for the pre Alpha 2 Repo? thats [here!](https://github.com/gameygu-0213/VS-Char-Revitilized-Source/tree/0.5.A1)
+Looking for a repo of a specific build?
+well heres how!
+click on Releases, any release and itll be the tag icon!
+(TO BE UPDATED WHEN I PUT THE IMAGE IN, COMMIT THEN EDIT THIS WITH THE LINK)
