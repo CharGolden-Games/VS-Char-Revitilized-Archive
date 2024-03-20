@@ -1,8 +1,8 @@
 # TODO:
 * Add custom animations to the right side of the screen based on selected option. (See [here](MainMenuTodo.md) for whats next to do there)
-* Send every menu item to the Left of the screen like OS Engine's menu.
-* Actually implement the stage editor from OS Engine.
-* Make new assets for Options and maybe add icons in the options menu.
+* ~Send every menu item to the Left of the screen like OS Engine's menu.~
+* ~Actually implement the stage editor from OS Engine.~ Fix the fact that its broken and doesnt properly display shit lol
+* ~Make new assets for Options and maybe add icons in the options menu.~ nah nvm
 * Implement Freeplay Catagories.
 * your mom. :troll:
 
