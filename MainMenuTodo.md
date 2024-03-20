@@ -6,4 +6,4 @@
 
 * Mods, Options, Toolbox - Igni, Holding a gear looking confused while an empty gear slot is behind him
 
-# * Your mom (in big letters)
+# Your mom (in big letters)

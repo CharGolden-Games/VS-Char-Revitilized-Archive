@@ -5,6 +5,9 @@
 * ~Make new assets for Options and maybe add icons in the options menu.~ nah nvm
 * Implement Freeplay Catagories.
 * your mom. :troll:
+* Finish the custom Menu Option Assets
+* De-color "Main" and "Credits"
+* Make something presentable by the end of April
 
 
 
