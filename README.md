@@ -1,26 +1,4 @@
-# TODO:
-* Add custom animations to the right side of the screen based on selected option. (See [here](MainMenuTodo.md) for whats next to do there)
-* ~Send every menu item to the Left of the screen like OS Engine's menu.~
-* ~Actually implement the stage editor from OS Engine.~ Fix the fact that its broken and doesnt properly display shit lol
-* ~Make new assets for Options and maybe add icons in the options menu.~ nah nvm
-* Implement Freeplay Catagories.
-* your mom. :troll:
-* Finish the custom Menu Option Assets
-* De-color "Main" and "Credits"
-* Make something presentable by the end of April
-
-
-
-
-
-
-
-
-
-
-
-
- ![](https://vscharimagefiles.neocities.org/imgs/VSCharLogo.png)
+![](https://vscharimagefiles.neocities.org/imgs/VSCharLogo.png)
 # VS Char: Revitilized! (Logo by [ODDBLUE](https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q)) 
 
 Hey welcome to my mod this is a little project im cookin up to get better at programming, spriting, and music production
