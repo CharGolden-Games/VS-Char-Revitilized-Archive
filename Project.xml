@@ -2,7 +2,8 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Char Engine" file="VSCharlol" packageName="com.chargolden.vschar" package="com.chargolden.vschar" main="Main" version="0.2.8" company="CharGolden" />
+	<app title="Friday Night Funkin': VS Char Revitalized" file="VS Char REVITALIZED" packageName="com.chargolden.vschar.revitalizedalpha1" package="com.chargolden.vschar.revitalizedalpha1" main="Main" version="Alpha 0.0.1" company="CharGolden" /> 
+<!-- the reason the version string is like that is because it shouldnt be used as a value -->
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
