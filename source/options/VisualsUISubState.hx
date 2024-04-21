@@ -59,7 +59,7 @@ class VisualsUISubState extends BaseOptionsMenu
 				noteSplashes);
 			addOption(option);
 		}
-
+			
 		var option:Option = new Option('Note Splash Opacity',
 			'How much transparent should the Note Splashes be.',
 			'splashAlpha',
@@ -126,16 +126,36 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What song do you prefer for the Pause Screen?",
 			'pauseMusic',
 			'string',
-			['None', 'Breakfast', 'Tea Time', 'Char Trailer Song']);
+			['None', 'Breakfast', 'Tea Time']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
+
+		var option:Option = new Option('Enable Alpha Warning',
+		'Enables the screen that tells you that THIS IS AN ALPHA',
+		'enableAlphaWarning',
+		'bool');
+		addOption(option);
 		
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
-			'On Release builds, turn this on to check for updates when you start the game.',
+			'On Release builds, turn this on to check for updates when you start the game. \n(also disables warnings, EXIT THIS MENU AND RETURN IF YOU RE-ENABLE!!!)',
 			'checkForUpdates',
 			'bool');
 		addOption(option);
+
+		if (ClientPrefs.data.checkForUpdates){
+			var option:Option = new Option('Enable Warnings',
+			'Shows most warnings upon startup (not including updates to the engine \n E.g. Theres no cached update, and the game cant reach github)',
+			'ShowWarnings',
+			'bool');
+		addOption(option);
+
+		var option:Option = new Option('Disable Version Caching',
+			'Enables caching the most recent gitVersion.txt in the repo, stored in assets/data/cachedversion/',
+			'EnableupdateVerCaching',
+			'bool');
+		addOption(option);
+					}
 		#end
 
 		#if desktop

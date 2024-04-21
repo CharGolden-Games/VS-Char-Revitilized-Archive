@@ -1,15 +1,15 @@
 package states;
 
-class OutdatedState extends MusicBeatState
+class AlphaWarningState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
 	override function create()
 	{
-		trace("Showed the Outdated Message woo!");
+		trace("Showed the Devbuild Warning woo!");
 		// FlxG.sound.music.volume = 0; 
-		FlxG.sound.music.stop(); // better solution???
+		//FlxG.sound.music.stop(); // better solution?
 		FlxG.sound.play(Paths.sound('UpdateMenuEnter'));
 		super.create();
 
@@ -17,14 +17,10 @@ class OutdatedState extends MusicBeatState
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Woah, Watch out you're running the wrong version   \n
-			'YOURE THE WRONG VERSION' \n
-			(" + MainMenuState.VSCharVersion + ") *Vine Boom*,\n
-			Its now at version " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
+			"WARNING THIS IS AN ALPHA
+			\nSHIT COULD CHANGE AT ANY TIME, YOU HAVE BEEN WARNED
 			\n
-			Seriosuly, Update.",
-			32);
+			\nEnter/Esc to skip",32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
@@ -35,8 +31,8 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/gameygu-0213/Char-Engine-New/releases");
-				trace("Opening The Github!");
+				trace("Skipped.");
+
 			}
 			else if(controls.BACK) {
 				leftState = true;
@@ -46,11 +42,11 @@ class OutdatedState extends MusicBeatState
 			if(leftState)
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+				//FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 				FlxTween.tween(warnText, {alpha: 0}, 1, {
 					onComplete: function (twn:FlxTween) {
-						MusicBeatState.switchState(new MainMenuState());
-				FlxG.sound.music.volume = 1;
+						MusicBeatState.switchState(new TitleState());
+				//FlxG.sound.music.volume = 1;
 				trace("Back to the menus!");
 					}
 				});

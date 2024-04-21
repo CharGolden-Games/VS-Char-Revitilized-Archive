@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menuimage.png">
+	<!-- Created with Adobe Animate version 22.0.5.191 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="menu-awards" x="0" y="0" width="512" height="512"/>
+	<SubTexture name="menu-credits" x="512" y="0" width="512" height="512"/>
+	<SubTexture name="menu-donate" x="1024" y="0" width="512" height="512"/>
+	<SubTexture name="menu-freeplay" x="1536" y="0" width="512" height="512"/>
+	<SubTexture name="menu-mods" x="0" y="512" width="512" height="512"/>
+	<SubTexture name="menu-options" x="512" y="512" width="512" height="512"/>
+	<SubTexture name="menu-storymode" x="1024" y="512" width="512" height="512"/>
+	<SubTexture name="menu-toolbox" x="1536" y="512" width="512" height="512"/>
+</TextureAtlas>

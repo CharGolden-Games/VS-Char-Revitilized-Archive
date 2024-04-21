@@ -2,6 +2,7 @@ package states;
 
 import backend.WeekData;
 import backend.Highscore;
+import lime.app.Application;
 
 import flixel.input.keyboard.FlxKey;
 import flixel.addons.transition.FlxTransitionableState;
@@ -20,13 +21,16 @@ import shaders.ColorSwap;
 
 import states.StoryMenuState;
 import states.OutdatedState;
+import states.UpdateErrorState;
+import states.DevBuildWarningState;
 import states.MainMenuState;
+import states.AlphaWarningState;
 import flixel.addons.display.FlxBackdrop;
 
-#if MODS_ALLOWED
+using StringTools;
+
 import sys.FileSystem;
 import sys.io.File;
-#end
 
 typedef TitleData =
 {
@@ -71,6 +75,9 @@ class TitleState extends MusicBeatState
 	#end
 
 	var mustUpdate:Bool = false;
+	var UpdateFailed:Bool = false;
+	var IsDevBuild:Bool = false;
+	public static var curVersion:String = MainMenuState.VSCharVersion.trim();
 
 	var titleJSON:TitleData;
 
@@ -101,12 +108,49 @@ class TitleState extends MusicBeatState
 		#if CHECK_FOR_UPDATES
 		if(ClientPrefs.data.checkForUpdates && !closedState) {
 			trace('checking for update');
-			var http = new haxe.Http("https://raw.githubusercontent.com/gameygu-0213/Char-Engine-New/master/gitVersion.txt");
+			var http = new haxe.Http("https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/gitVersion.txt");
 
 			http.onData = function (data:String)
 			{
 				updateVersion = data.split('\n')[0].trim();
-				var curVersion:String = MainMenuState.psychEngineVersion.trim();
+				var path:String;
+				var readmePath:String = "./assets/VersionCache/readme.txt";
+
+
+				// Caching the last version successfully found and if caching is enabled
+				if (ClientPrefs.data.EnableupdateVerCaching) {
+					if ((!FileSystem.exists("./assets/VersionCache/")) == true) {
+						FileSystem.createDirectory("./assets/VersionCache/");
+						trace("Created 'cachedversion' Directory, Saving gitVersion cache");
+					path = "./assets/VersionCache/" + "gitVersionCache.txt";
+					File.saveContent(path, updateVersion);
+					File.saveContent(readmePath, 'this is where i cache the last successful version grabbed,\nmess with it and itll just overwrite it with the latest version of "gitVersion.txt" from the Repo');
+					trace("Version Successfully cached: " + updateVersion);}}
+	
+					// if its found, and its a lower version, replace it as long as caching is enabled
+					if (ClientPrefs.data.EnableupdateVerCaching) {
+					if ((!FileSystem.exists("./assets/VersionCache/")) != true) {
+					var CachedVersion = sys.io.File.getContent("./assets/VersionCache/gitVersionCache.txt");
+					if (updateVersion != CachedVersion){
+					trace("Offline gitVersion out of date, replacing it with v" + updateVersion);
+					if (!FileSystem.exists("./assets/VersionCache/")){
+					FileSystem.deleteDirectory("./assets/VersionCache/");
+					}
+					
+					if (!FileSystem.exists("./assets/VersionCache/")) {
+						FileSystem.createDirectory("./assets/VersionCache/");
+					}
+					path = "./assets/VersionCache/" + "gitVersionCache.txt";
+					File.saveContent(path, updateVersion);
+					File.saveContent(readmePath, 'this is where i cache the last successful version grabbed,\nmess with it and itll just overwrite it with the latest version of "gitVersion.txt" from the Repo');
+					trace("Github Cache up to date!!!!");}
+					else if (updateVersion == CachedVersion) {
+					trace("Github cache already up to date, no changes!");}}}
+				
+				
+
+				// back to normalcy, vanilla code.
+				updateVersion = data.split('\n')[0].trim();
 				trace('version online: ' + updateVersion + ', your version: ' + curVersion);
 				if(updateVersion != curVersion) {
 					trace('versions arent matching!');
@@ -115,7 +159,13 @@ class TitleState extends MusicBeatState
 			}
 
 			http.onError = function (error) {
-				trace('error: $error');
+				trace('error: $error | the http request failed!!');
+				if (FileSystem.exists("./assets/VersionCache/")){
+					var CachedVersion = sys.io.File.getContent("./assets/VersionCache/gitVersionCache.txt");
+					if (curVersion != CachedVersion) {
+					UpdateFailed = true;
+					}
+				}
 			}
 
 			http.request();
@@ -168,6 +218,11 @@ class TitleState extends MusicBeatState
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
 		#else
+		if (ClientPrefs.data.enableAlphaWarning && !AlphaWarningState.leftState) {
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			MusicBeatState.switchState(new AlphaWarningState());
+		}
 		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
@@ -379,6 +434,7 @@ class TitleState extends MusicBeatState
 		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER || controls.ACCEPT;
+		var exitTitle:Bool = false;
 
 		#if mobile
 		for (touch in FlxG.touches.list)
@@ -441,7 +497,14 @@ class TitleState extends MusicBeatState
 				{
 					if (mustUpdate) {
 						MusicBeatState.switchState(new OutdatedState());
-					} else {
+							}
+					else if (UpdateFailed) {
+						MusicBeatState.switchState(new UpdateErrorState());
+							  }
+					/*else if (IsDevBuild) {
+						MusicBeatState.switchState(new DevBuildWarningState());
+							  }*/
+					else {
 						MusicBeatState.switchState(new MainMenuState());
 					}
 					closedState = true;
@@ -497,6 +560,17 @@ class TitleState extends MusicBeatState
 					}
 				}
 			}
+			if (skippedIntro)
+				{
+					if (FlxG.keys.justPressed.BACKSPACE)
+						{
+					exitTitle = true;
+						}
+					if (FlxG.keys.justPressed.ESCAPE)
+						{
+					exitTitle = true;
+						}
+				}
 			#end
 		}
 
@@ -575,11 +649,16 @@ class TitleState extends MusicBeatState
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
-					createCoolText(['Psych Engine by'], 40);
+					createCoolText(['Char Engine by'], 40);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
 				// credTextShit.visible = true;
+				case 3:
+					#if PSYCH_WATERMARKS
+					addMoreText('Anny (Char)', 40);
+					addMoreText('(Psych Engine 0.7.1h by)', 40);
+					#end
 				case 4:
 					#if PSYCH_WATERMARKS
 					addMoreText('Shadow Mario', 40);
@@ -630,8 +709,10 @@ class TitleState extends MusicBeatState
 				// credTextShit.text += '\nNight';
 				case 16:
 					addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
 				case 17:
+					addMoreText('VS Char Revitalized Alpha');
+
+				case 18:
 					skipIntro();
 			}
 		}

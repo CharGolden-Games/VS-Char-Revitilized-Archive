@@ -1,5 +1,7 @@
 package states;
 
+import substates.Prompt;
+import substates.GameplayChangersSubstate;
 import backend.WeekData;
 import backend.Achievements;
 
@@ -13,28 +15,47 @@ import lime.app.Application;
 import objects.AchievementPopup;
 import states.editors.MasterEditorMenu;
 import options.OptionsState;
+import substates.DebugPrompt;
+
+#if MODS_ALLOWED
+import sys.FileSystem;
+import sys.io.File;
+#end
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.5h'; //This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.7.1h';
+	public static var CharEngineVersion:String = '0.6'; // three version strings???? yes.
+	public static var VSCharVersion:String = 'Alpha 1'; // Used for checking if you have a Devbuild lol oh and also updating in this case
 	public static var curSelected:Int = 0;
+	public var MenuOptionImage = new FlxSprite().loadGraphic(Paths.image('menuimage'));
+	public static var bgPaths:Array<String> = 
+	[
+		'menuBG/menuBG',
+		'menuBG/Micheal',
+		'menuBG/CharMenacing',
+		'menuBG/TheGangsAllHere',
+	];
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	public var justPressedDebugKey:Bool = false;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
 		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'toolbox',
 		'credits',
-		#if !switch 'donate', #end
+		//'donate', //in case you still want it
 		'options'
 	];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
+
 
 	override function create()
 	{
@@ -62,18 +83,36 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
-		bg.antialiasing = ClientPrefs.data.antialiasing;
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(randomizeBG());
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
 		bg.screenCenter();
+		bg.antialiasing = ClientPrefs.data.antialiasing;
+		bg.color = 0xFFfde871;
 		add(bg);
+
+			MenuOptionImage.frames = Paths.getSparrowAtlas('menuimage');
+				MenuOptionImage.animation.addByPrefix('story_mode', "menu-storymode");
+				MenuOptionImage.animation.addByPrefix('options', "menu-options");
+				MenuOptionImage.animation.addByPrefix('toolbox', "menu-toolbox");
+				#if MODS_ALLOWED MenuOptionImage.animation.addByPrefix('mods', "menu-mods"); #end
+				#if ACHIEVEMENTS_ALLOWED MenuOptionImage.animation.addByPrefix('awards', "menu-awards"); #end
+				MenuOptionImage.animation.addByPrefix('credits', "menu-credits");
+				MenuOptionImage.animation.addByPrefix('freeplay', "menu-freeplay");
+				MenuOptionImage.animation.addByPrefix('donate', "menu-donate"); // Just in case you wanna show the donate option
+				if(!ClientPrefs.data.lowQuality) {
+				MenuOptionImage.antialiasing = ClientPrefs.data.antialiasing; // uhh it looks like shit without this lol.
+				MenuOptionImage.setGraphicSize(Std.int(MenuOptionImage.width * 0.75));
+				MenuOptionImage.scrollFactor.set(0, 0);
+				MenuOptionImage.offset.set(-831, -300); // its an odd number because its literally an ENTIRE PIXEL OFF at X = 830
+				add(MenuOptionImage);	
+	}
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
+		magenta = new FlxSprite().loadGraphic(randomizeBG());
 		magenta.antialiasing = ClientPrefs.data.antialiasing;
 		magenta.scrollFactor.set(0, yScroll);
 		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
@@ -82,7 +121,8 @@ class MainMenuState extends MusicBeatState
 		magenta.visible = false;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-		
+
+
 		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
@@ -105,7 +145,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
+			// menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -113,14 +153,17 @@ class MainMenuState extends MusicBeatState
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
 		}
-
+		
 		FlxG.camera.follow(camFollow, null, 0);
-
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Char Engine (Psych 0.7.1h) v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, 4, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, 24, 0, "Char Engine v" + CharEngineVersion, 12);
+		versionShit.scrollFactor.set();
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(versionShit);
+		var versionShit:FlxText = new FlxText(FlxG.width * 0.7, 44, 0, "VS Char Revitalized v" + VSCharVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -222,9 +265,10 @@ class MainMenuState extends MusicBeatState
 									case 'story_mode':
 										MusicBeatState.switchState(new StoryMenuState());
 									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-									#if MODS_ALLOWED
-									case 'mods':
+										MusicBeatState.switchState(new FreeplaySelectState());
+									case 'toolbox':
+										MusicBeatState.switchState(new MasterEditorMenu());
+									#if MODS_ALLOWED case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
 									#end
 									case 'awards':
@@ -245,22 +289,26 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			#if desktop
-			else if (controls.justPressed('debug_1'))
+		}
+		#if desktop
+			if (controls.justPressed('debug_1'))
 			{
-				selectedSomethin = true;
-				MusicBeatState.switchState(new MasterEditorMenu());
+				FlxG.mouse.visible = true;
+				openSubState(new DebugPrompt('HEY thats in TOOLBOX NOW', 0, goToEditorMenu, null, false, 'Take Me!', 'Ok'));
 			}
 			#end
-		}
 
 		super.update(elapsed);
-
-		menuItems.forEach(function(spr:FlxSprite)
+		
+		if (!ClientPrefs.data.lowQuality){
+		var menuoption:String = optionShit[curSelected];
+		MenuOptionImage.animation.play(menuoption);}
+			menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.screenCenter(X);
+			// spr.screenCenter(X);
 		});
 	}
+
 
 	function changeItem(huh:Int = 0)
 	{
@@ -274,18 +322,32 @@ class MainMenuState extends MusicBeatState
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.animation.play('idle');
-			spr.updateHitbox();
+			//spr.updateHitbox();
+			spr.scale.x = 0.7;
+			spr.scale.y = 0.7;
 
 			if (spr.ID == curSelected)
 			{
 				spr.animation.play('selected');
+				spr.scale.x = 1;
+				spr.scale.y = 1;
 				var add:Float = 0;
 				if(menuItems.length > 4) {
 					add = menuItems.length * 8;
 				}
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
-				spr.centerOffsets();
+				camFollow.setPosition(spr.getGraphicMidpoint().x - 300, spr.getGraphicMidpoint().y - add);
+				// spr.centerOffsets();
 			}
-		});
+
+		}); 
 	}
+	public static function randomizeBG():flixel.system.FlxAssets.FlxGraphicAsset
+	{
+		var chance:Int = FlxG.random.int(0, bgPaths.length - 1);
+		return Paths.image(bgPaths[chance]);
+	}
+	function goToEditorMenu() 
+		{
+			MusicBeatState.switchState(new MasterEditorMenu());
+		}
 }

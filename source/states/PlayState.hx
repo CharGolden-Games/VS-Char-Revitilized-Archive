@@ -43,6 +43,7 @@ import states.editors.CharacterEditorState;
 
 import substates.PauseSubState;
 import substates.GameOverSubstate;
+import substates.GameplayChangersSubstate;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -1868,6 +1869,27 @@ class PlayState extends MusicBeatState
 		#end
 	}
 
+	public function openChangersMenu()
+		{
+			persistentUpdate = false;
+			persistentDraw = true;
+			paused = true;
+	
+			// 1 / 1000 chance for Gitaroo Man easter egg
+			/*if (FlxG.random.bool(0.1))
+			{
+				// gitaroo man easter egg
+				cancelMusicFadeTween();
+				MusicBeatState.switchState(new GitarooPause());
+			}
+			else {*/
+			if(FlxG.sound.music != null) {
+				FlxG.sound.music.pause();
+				vocals.pause();
+			}
+			openSubState(new GameplayChangersSubstate());
+		}
+
 	function openChartEditor()
 	{
 		FlxG.camera.followLerp = 0;
@@ -2179,9 +2201,49 @@ class PlayState extends MusicBeatState
 					addTextToDebug('ERROR ("Set Property" Event) - ' + e.message.substr(0, e.message.indexOf('\n')), FlxColor.RED);
 				}
 			
-			case 'Play Sound':
-				if(flValue2 == null) flValue2 = 1;
-				FlxG.sound.play(Paths.sound(value1), flValue2);
+			// case 'Play Sound': fix this later, finish the stage shit lol
+				// if(flValue2 == null) flValue2 = 1;
+				// FlxG.sound.play(Paths.sound(value1), flValue2);
+			// case 'Black Bars':
+				// var enabled = false;
+				// if(flValue1 == null) flValue1 = 2;
+				// if(flValue1 == 1);
+					// if not enabled then
+					// enabled = true;
+
+					// var black:FlxSprite = new FlxSprite();
+					// black.makeGraphic(1280, 100, FlxColor.BLACK);
+					// black.x = 0;
+					// black.y = -200;
+					// setObjectCamera(black, camHUD);
+					// add(black);
+					// FlxTween.tween(black, {0, 1,}, 2.0,
+					// 	ease: FlxEase.circOut);
+					// var black2:FlxSprite = new FlxSprite();
+					// black2.makeGraphic(1280, 100, FlxColor.BLACK);
+					// black2.x = 0;
+					// black2.y = 800;
+					// setObjectCamera(black2, camHUD);
+					// add(black2);
+					// FlxTween.tween(black2, {620, 1,}, 2.0,
+					// 	ease: FlxEase.circOut);
+
+					// old lua code for reference
+                	// makeLuaSprite('black', 'black', 0, -200)
+                	// addLuaSprite('black', false)
+
+                	// makeLuaSprite('black2', 'black', 0, 800)
+                	// addLuaSprite('black2', false)
+
+                	// makeGraphic('black', 1280, 100, '000000')
+                	// setObjectCamera('black', 'camHUD')
+
+                	// makeGraphic('black2', 1280, 100, '000000')
+                	// setObjectCamera('black2', 'camHUD')
+
+                	// doTweenY('blackuptween', 'black2', 620, 1, 'circOut')
+                	//doTweenY('blackdowntween', 'black', 0, 1, 'circOut')
+
 		}
 		
 		stagesFunc(function(stage:BaseStage) stage.eventCalled(eventName, value1, value2, flValue1, flValue2, strumTime));

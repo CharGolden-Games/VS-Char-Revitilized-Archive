@@ -1,30 +1,28 @@
 package states;
 
-class OutdatedState extends MusicBeatState
+class DevBuildWarningState extends MusicBeatState
 {
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
 	override function create()
 	{
-		trace("Showed the Outdated Message woo!");
+		trace("Showed the Devbuild Warning woo!");
 		// FlxG.sound.music.volume = 0; 
-		FlxG.sound.music.stop(); // better solution???
-		FlxG.sound.play(Paths.sound('UpdateMenuEnter'));
+		FlxG.sound.music.stop(); // better solution?
+		FlxG.sound.play(Paths.sound('menuError'));
 		super.create();
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuError'));
 		add(bg);
 
 		warnText = new FlxText(0, 0, FlxG.width,
-			"Woah, Watch out you're running the wrong version   \n
-			'YOURE THE WRONG VERSION' \n
-			(" + MainMenuState.VSCharVersion + ") *Vine Boom*,\n
-			Its now at version " + TitleState.updateVersion + "!\n
-			Press ESCAPE to proceed anyway.\n
-			\n
-			Seriosuly, Update.",
-			32);
+			"WARNING THIS IS A DEVBUILD
+			\n IF YOU RECIEVED THIS FROM ANYONE OTHER THAN,
+			\n Anny (aka Char or Char Golden),
+			\n \n YOU COULD HAVE RECIEVED A MALICOUS/ILLEGITIMATE BUILD!
+			\n PLEASE REPORT THIS TO '@annyconducter' IN THE DISCORD
+			\n (Enter to go to the discord, ESC to skip)",32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
@@ -35,8 +33,9 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/gameygu-0213/Char-Engine-New/releases");
-				trace("Opening The Github!");
+				CoolUtil.browserLoad("https://discord.gg/BuGUaYMtxR");
+				trace("Opening Discord!");
+
 			}
 			else if(controls.BACK) {
 				leftState = true;

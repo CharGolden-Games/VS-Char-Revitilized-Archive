@@ -21,20 +21,20 @@ class SaveVariables {
 	public var lowQuality:Bool = false;
 	public var shaders:Bool = true;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
-	public var framerate:Int = 60;
+	public var framerate:Int = 240;
 	public var camZooms:Bool = true;
 	public var hideHud:Bool = false;
 	public var noteOffset:Int = 0;
 	public var arrowRGB:Array<Array<FlxColor>> = [
-		[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56],
-		[0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7],
-		[0xFF12FA05, 0xFFFFFFFF, 0xFF0A4447],
-		[0xFFF9393F, 0xFFFFFFFF, 0xFF651038]];
+		[0xFFFF9D00, 0xFFFFFFFF, 0xFF802B00],
+		[0xFF6D4FDC, 0xFFFFFFFF, 0xFF27195B],
+		[0xFF034300, 0xFFFFFFFF, 0xFF0A4447],
+		[0xFFBE6081, 0xFFFFFFFF, 0xFF651038]];
 	public var arrowRGBPixel:Array<Array<FlxColor>> = [
-		[0xFFE276FF, 0xFFFFF9FF, 0xFF60008D],
-		[0xFF3DCAFF, 0xFFF4FFFF, 0xFF003060],
-		[0xFF71E300, 0xFFF6FFE6, 0xFF003100],
-		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
+		[0xFFFF9D00, 0xFFFFF9FF, 0xFF802B00],
+		[0xFF6D4FDC, 0xFFF4FFFF, 0xFF27195B],
+		[0xFF034300, 0xFFF6FFE6, 0xFF0A4447],
+		[0xFFBE6081, 0xFFFFFAF5, 0xFF651038]];
 
 	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
@@ -43,7 +43,10 @@ class SaveVariables {
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
+	public var enableAlphaWarning:Bool = true;
 	public var checkForUpdates:Bool = true;
+	public var EnableupdateVerCaching:Bool = true;
+	public var ShowWarnings:Bool = true;
 	public var comboStacking:Bool = true;
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
@@ -88,10 +91,12 @@ class ClientPrefs {
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
 		//Key Bind, Name for ControlsSubState
-		'note_up'		=> [W, UP],
-		'note_left'		=> [A, LEFT],
-		'note_down'		=> [S, DOWN],
-		'note_right'	=> [D, RIGHT],
+		// cmon man everyone uses DFJK at this point lol
+		// note: this is different from options/ControlSubState.hx with the directions lol
+		'note_up'		=> [J, UP],
+		'note_left'		=> [D, LEFT],
+		'note_down'		=> [F, DOWN],
+		'note_right'	=> [K, RIGHT],
 		
 		'ui_up'			=> [W, UP],
 		'ui_left'		=> [A, LEFT],
@@ -108,7 +113,8 @@ class ClientPrefs {
 		'volume_down'	=> [NUMPADMINUS, MINUS],
 		
 		'debug_1'		=> [SEVEN],
-		'debug_2'		=> [EIGHT]
+		'debug_2'		=> [EIGHT]/*,
+		'debug_3'		=> [NINE] */ // haha the joke is fulfilled, anyway tbd the use for "debug_3" so imma leave it commented out for now
 	];
 	public static var gamepadBinds:Map<String, Array<FlxGamepadInputID>> = [
 		'note_up'		=> [DPAD_UP, Y],
