@@ -1,10 +1,9 @@
 @echo off
-color 0a
 cd ..
-echo BUILDING GAME
+color 09
+echo WELCOME TO DEBUG ZONE (BUILDING GAME)
 haxelib run lime build windows -debug
 echo.
 echo done.
 pause
-pwd
 explorer.exe export\debug\windows\bin

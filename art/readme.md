@@ -1,0 +1,1 @@
+The icons moved to /icon to keep them all in one place and remove clutter from here lol
