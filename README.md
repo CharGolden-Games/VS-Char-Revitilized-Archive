@@ -19,6 +19,6 @@ click on Releases, any release and itll be the tag icon!
 
 
 
-# NOTE ANY VERSION BEFORE 0.4 IS A DUMMY IN TERMS OF SOURCE, IT DOES NOT CONTAIN THAT VERSIONS SOURCE, LOOK [HERE](https://github.com/gameygu-0213/Char-Engine)
+# NOTE ANY VERSION BEFORE 0.4 IS A DUMMY IN TERMS OF SOURCE, IT DOES NOT CONTAIN THAT VERSIONS SOURCE, LOOK [HERE](https://github.com/gameygu-0213/VS-Char-Legacy)
 
 also heres a github pages [page lol](https://gameygu-0213.github.io/VS-Char-Revitilized-Source/)
