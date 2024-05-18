@@ -30,6 +30,7 @@ body {
     color:white;
     background-color: #000;
     font-family: Arial, Helvetica, sans-serif;
+    cursor: url("https://raw.githubusercontent.com/gameygu-0213/VS-Char-Revitilized-Source/master/docs/img/cursor.png"), default;
     
 }
 
@@ -47,6 +48,7 @@ a { color:inherit;
 {
     text-shadow: 2px 2px #00000077;
     color: #ffb50e;
+
 }
 
 .linktext {
@@ -54,23 +56,28 @@ a { color:inherit;
     display:block;
     font-size: 130%;
     padding-bottom: 10px;
+
 }
 
 .linktext a {
     font-weight: bold;  
+
 }
 
 .linktext a:hover {
   border-radius: 5px;
+
 }
 
 #itch a:hover
 {
     color: #fa5c5c;
+
 }
 #twitter a:hover
 {
     color: #00acee;
+
 }
 
 
