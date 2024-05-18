@@ -69,7 +69,7 @@ class CreditsState extends MusicBeatState
 			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7'],
 			['VS Char Team'],
 			['Char Golden/Char But Live',			'char',		     	'Coder, Main artist, and Animator for VS Char',	'https://twitter.com/chargoldenyt',			'E1843A'],
-			['Funkkid/uudieikeoe/razu',				'razu',				'Pause Screen Music, Application Logo, Title Logo',			'https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q',	'378FC7'],
+			['WHYEthan',							'razu',				'Pause Screen Music, Application Logo, Title Logo',			'https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q',	'378FC7'],
 			['xZOOTERx',							'zooter',			'Made the original Shenanigans song.',			'https://www.youtube.com/watch?v=lNCz1nBLXTQ_',	'444444'],
 			['MC07',								'mc07',				'Helped with some FLAs and icons as well as fixed my goofy ahh glow effects with char',			'https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q',	'378FC7']
 

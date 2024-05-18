@@ -1,5 +1,5 @@
 ![](https://vscharimagefiles.neocities.org/imgs/VSCharLogo.png)
-# VS Char: Revitilized! (Logo by [ODDBLUE](https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q)) 
+# VS Char: Revitilized! (Logo by [WHYEthan](https://www.youtube.com/channel/UC9lI9voKG3IHdtWIm6TC08Q)) 
 
 Hey welcome to my mod this is a little project im cookin up to get better at programming, spriting, and music production
 
