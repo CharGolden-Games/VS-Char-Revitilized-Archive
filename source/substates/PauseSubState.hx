@@ -37,16 +37,16 @@ class PauseSubState extends MusicBeatSubstate
 		super();
 		if(Difficulty.list.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
 
-		if(PlayState.chartingMode)
-		{
-			menuItemsOG.insert(2, 'Leave Charting Mode');
-			
-			var num:Int = 0;
+			var num:Int = 0; //im assuming this goes here to make it not show until the song starts????? - Anny (Char)
 			if(!PlayState.instance.startingSong)
 			{
 				num = 1;
 				menuItemsOG.insert(3, 'Skip Time');
 			}
+
+		if(PlayState.chartingMode)
+		{
+			menuItemsOG.insert(2, 'Leave Charting Mode');
 			menuItemsOG.insert(3 + num, 'End Song');
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
